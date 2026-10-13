@@ -18,10 +18,11 @@ const Navbar = () => {
     } = useContext(ShopContext)
 
     const logout = () => {
-        navigate('/login')
         localStorage.removeItem('token')
         setToken('')
         setCartItems({})
+        setVisible(false)
+        navigate('/login')
     }
 
     return (
@@ -82,20 +83,20 @@ const Navbar = () => {
                 <div className="group relative">
 
                     <img
-                        onClick={() => token ? null : navigate('/login')}
+                        onClick={() => !token && navigate('/login')}
                         src={assets.profile_icon}
                         className="w-5 cursor-pointer"
                         alt="Account"
                     />
 
-                    {/* Dropdown Menu */}
+                    {/* Dropdown menu */}
                     {token && (
                         <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4 z-50">
 
                             <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
 
                                 <p
-                                    onClick={() => navigate('/orders')}
+                                    onClick={() => navigate('/profile')}
                                     className="cursor-pointer hover:text-black"
                                 >
                                     My Profile
@@ -203,16 +204,21 @@ const Navbar = () => {
                             <NavLink
                                 onClick={() => setVisible(false)}
                                 className="py-3 pl-6 border"
+                                to="/profile"
+                            >
+                                MY PROFILE
+                            </NavLink>
+
+                            <NavLink
+                                onClick={() => setVisible(false)}
+                                className="py-3 pl-6 border"
                                 to="/orders"
                             >
                                 ORDERS
                             </NavLink>
 
                             <button
-                                onClick={() => {
-                                    setVisible(false)
-                                    logout()
-                                }}
+                                onClick={logout}
                                 className="py-3 pl-6 border text-left"
                             >
                                 LOGOUT
@@ -229,4 +235,5 @@ const Navbar = () => {
 }
 
 export default Navbar
+
 

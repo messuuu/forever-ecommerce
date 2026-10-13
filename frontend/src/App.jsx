@@ -12,6 +12,7 @@ import Login from './pages/login'
 import PlaceOrder from './pages/placeorder'
 import Orders from './pages/orders'
 import Verify from './pages/verify'
+import Profile from './pages/profile'
 
 import Navbar from './component/Navbar'
 import Footer from './component/Footer'
@@ -24,32 +25,33 @@ import 'react-toastify/dist/ReactToastify.css'
 export const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 const App = () => {
-  return (
-    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    return (
+        <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
-      <ToastContainer />
+            <ToastContainer />
 
-      <Navbar />
+            <Navbar />
 
-      <SearchBar />
+            <SearchBar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/collection" element={<Collection />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/product/:productId" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/place-order" element={<PlaceOrder />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/verify" element={<Verify />} />
-      </Routes>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/collection" element={<Collection />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/product/:productId" element={<Product />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/place-order" element={<PlaceOrder />} />
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/verify" element={<Verify />} />
+            </Routes>
 
-      <Footer />
+            <Footer />
 
-    </div>
-  )
+        </div>
+    )
 }
 
 export default App
