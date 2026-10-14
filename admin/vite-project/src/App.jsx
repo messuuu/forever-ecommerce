@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import Add from './pages/Add'
 import List from './pages/list'
 import Orders from './pages/orders'
-import Login from './components/Login'
+import Login from './components/login'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
